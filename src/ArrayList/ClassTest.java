@@ -9,8 +9,9 @@ public class ClassTest {
         list.add("ccc");
         list.add("aaa");
         System.out.println("индекс эл " + list.indexOf("aaa"));
-
         System.out.println(list);
+        list.remove(1);
+        System.out.println(list + " удаление по индексу++++++");
 
         System.out.println("длинна списка - " + list.size());
         System.out.println("эл по индексу - " + list.get(0));
@@ -19,8 +20,7 @@ public class ClassTest {
         System.out.println("проверка эл " + list.contains("aaa"));
         System.out.println("проверка эл " + list.contains("vvv"));
 
-        list.remove(1);
-        System.out.println(list + " удаление по индексу++++++");
+
 
         list.remove("aaa");
         System.out.println(list + " удаление по эл");

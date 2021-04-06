@@ -56,7 +56,7 @@ public class MyArrayList<T> {
         Object[] entities1 = new Object[this.entities.length - 1];
         int a = 0;
         for (int i = 0; i < this.entities.length; i++) {
-            if (i != index - 1) {
+            if (i != index) {
                 entities1[a] = this.entities[i];
                 a++;
             }
