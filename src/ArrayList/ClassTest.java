@@ -2,35 +2,26 @@ package ArrayList;
 
 public class ClassTest {
     public static void main(String[] args) {
-        MyArrayList myArrayList = new MyArrayList();
-        String[] people = {"Tom", "Alice", "Sam", "Kate", "Bob", "Helen"};
+        MyArrayList<String> list = new MyArrayList();
 
-        myArrayList.setMyArrayList(people);
+        list.add("aaa");
+        list.add("ddd");
+        list.add("ccc");
 
+        System.out.println(list);
 
-        System.out.println("исходный " + myArrayList);
+        System.out.println("длинна списка " + list.size());
+        System.out.println("эл по индексу " + list.get(0));
+        System.out.println("индекс эл " + list.indexOf("aaa"));
+        System.out.println("индекс эл " + list.indexOf("vvv"));
+        System.out.println("проверка эл " + list.contains("aaa"));
+        System.out.println("проверка эл " + list.contains("vvv"));
 
-        MyArrayList myArrayList1 = addElement(myArrayList, "10");
+        list.remove(1);
+        System.out.println(list + " удаление по индексу");
 
-        System.out.println("добавили одно число " + myArrayList1);//10 в конце
-
-        System.out.println("длинна списка " + myArrayList1.size());//4
-
-        System.out.println("элемент по заданному индексу " + myArrayList1.getEssence(0));//5
-
-        System.out.println("индекс по  заданому элементу " + myArrayList1.getIndex("Java"));//-1
-        System.out.println("индекс по  заданому элементу " + myArrayList1.getIndex("100"));//-1
-
-        System.out.println("наличие элемента " + myArrayList1.contains("100"));//false
-        System.out.println("наличие элемента " + myArrayList1.contains("5"));//true
-    }
-
-    public static MyArrayList addElement(MyArrayList myArrayList, String str) {
-        MyArrayList myArrayList1 = new MyArrayList();
-
-        myArrayList1.setMyArrayList(myArrayList.addEssence(str));
-        return myArrayList1;
+        list.remove("ccc");
+        System.out.println(list + " удаление по эл");
 
     }
-
 }

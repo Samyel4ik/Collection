@@ -4,33 +4,23 @@ package ArrayList;
 import java.util.Arrays;
 
 public class MyArrayList<T> {
-    T[] entities;
+    Object[] entities = new Object[0];
 
-    public void setMyArrayList(T[] entities) {
-        this.entities = entities;
-    }
+    public void add(T essence) {
+        this.entities = Arrays.copyOf(this.entities, this.entities.length + 1);
+        this.entities[entities.length - 1] = essence;
 
-    public T[] addEssence(T essence) {
-        T[] array1 = (T[]) Arrays.copyOf(this.entities, this.entities.length + 1);
-        array1[array1.length - 1] = essence;
-        return array1;
     }
 
     public int size() {
         return this.entities.length;
     }
 
-    public T getEssence(int index) {
-        T essence = null;
-        for (int i = 0; i < this.entities.length; i++) {
-            if (index == i) {
-                essence = this.entities[i];
-            }
-        }
-        return essence;
+    public T get(int index) {
+        return (T) this.entities[index];
     }
 
-    public int getIndex(T essence) {
+    public int indexOf(T essence) {
         int index = -1;
 
         for (int i = 0; i < this.entities.length; i++) {
@@ -41,15 +31,41 @@ public class MyArrayList<T> {
         return index;
     }
 
-    public boolean contains(T essence) {
+    public boolean contains(T essence1) {
         boolean contains = false;
-        for (int i = 0; i < this.entities.length; i++) {
-            if (essence.equals(this.entities[i])) {
+        for (Object essence : this.entities) {
+            if (essence1.equals(essence)) {
                 contains = true;
             }
         }
         return contains;
     }
+
+    public void remove(int index) {
+        Object[] entities1 = new Object[this.entities.length - 1];
+        int a = 0;
+        for (int i = 0; i < this.entities.length; i++) {
+            if (i != index) {
+                entities1[a] = this.entities[i];
+                a++;
+            }
+        }
+        this.entities = entities1;
+    }
+
+    public void remove(T essence) {
+        Object[] entities1 = new Object[this.entities.length - 1];
+        int a = 0;
+        for (int i = 0; i < this.entities.length; i++) {
+            if (!essence.equals(this.entities[i])) {
+                entities1[a] = this.entities[i];
+                a++;
+            }
+        }
+        this.entities = entities1;
+
+    }
+
 
     @Override
     public String toString() {
