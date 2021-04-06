@@ -14,9 +14,8 @@ public class ClassTest {
         System.out.println("добавили одно число " + myArrayList1);//10 в конце
 
         System.out.println("длинна списка " + myArrayList1.size());//4
-        String str = myArrayList1.getElement(0);
 
-        System.out.println("элемент по заданному индексу " + str);//5
+        System.out.println("элемент по заданному индексу " +myArrayList1.getElement(0));//5
 
         System.out.println("индекс по  заданому элементу " + myArrayList1.getIndex("Java"));//1
         System.out.println("индекс по  заданому элементу " + myArrayList1.getIndex("100"));//-1
