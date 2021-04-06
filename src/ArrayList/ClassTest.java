@@ -8,7 +8,7 @@ public class ClassTest {
         list.add("ddd");
         list.add("ccc");
         list.add("aaa");
-
+        System.out.println("индекс эл " + list.indexOf("aaa"));
 
         System.out.println(list);
 
