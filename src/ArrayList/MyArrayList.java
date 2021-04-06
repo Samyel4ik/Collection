@@ -4,15 +4,15 @@ package ArrayList;
 import java.util.Arrays;
 
 public class MyArrayList {
-    int[] array;
+    String[] array;
 
-    public void setMyArrayList(int[] array) {
+    public void setMyArrayList(String[] array) {
         this.array = array;
     }
 
-    public int[] addElement(int x) {
-        int[] array1 = Arrays.copyOf(this.array, this.array.length + 1);
-        array1[array1.length - 1] = x;
+    public String[] addElement(String str) {
+        String[] array1 = Arrays.copyOf(this.array, this.array.length + 1);
+        array1[array1.length - 1] = str;
         return array1;
     }
 
@@ -20,31 +20,31 @@ public class MyArrayList {
         return this.array.length;
     }
 
-    public int getElement(int index) {
-        int element = 0;
+    public String getElement(int index) {
+        String element = "";
         for (int i = 0; i < this.array.length; i++) {
-            if (index - 1 == i) {
+            if (index == i) {
                 element = this.array[i];
             }
         }
         return element;
     }
 
-    public int getIndex(int element) {
+    public int getIndex(String element) {
         int index = -1;
 
         for (int i = 0; i < this.array.length; i++) {
-            if (element == this.array[i]) {
+            if (element.equals(this.array[i])) {
                 index = i;
             }
         }
         return index;
     }
 
-    public boolean contains(int element) {
+    public boolean contains(String element) {
         boolean contains = false;
         for (int i = 0; i < this.array.length; i++) {
-            if (element == this.array[i]) {
+            if (element.equals(this.array[i])) {
                 contains = true;
             }
         }
