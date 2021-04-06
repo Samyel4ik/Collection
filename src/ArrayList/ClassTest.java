@@ -2,10 +2,11 @@ package ArrayList;
 
 public class ClassTest {
     public static void main(String[] args) {
-        String[] array = new String[]{"5", "Java", "22"};
-
         MyArrayList myArrayList = new MyArrayList();
-        myArrayList.setMyArrayList(array);
+        String[] people = {"Tom", "Alice", "Sam", "Kate", "Bob", "Helen"};
+
+        myArrayList.setMyArrayList(people);
+
 
         System.out.println("исходный " + myArrayList);
 
@@ -15,9 +16,9 @@ public class ClassTest {
 
         System.out.println("длинна списка " + myArrayList1.size());//4
 
-        System.out.println("элемент по заданному индексу " +myArrayList1.getElement(0));//5
+        System.out.println("элемент по заданному индексу " + myArrayList1.getEssence(0));//5
 
-        System.out.println("индекс по  заданому элементу " + myArrayList1.getIndex("Java"));//1
+        System.out.println("индекс по  заданому элементу " + myArrayList1.getIndex("Java"));//-1
         System.out.println("индекс по  заданому элементу " + myArrayList1.getIndex("100"));//-1
 
         System.out.println("наличие элемента " + myArrayList1.contains("100"));//false
@@ -27,7 +28,7 @@ public class ClassTest {
     public static MyArrayList addElement(MyArrayList myArrayList, String str) {
         MyArrayList myArrayList1 = new MyArrayList();
 
-        myArrayList1.setMyArrayList(myArrayList.addElement(str));
+        myArrayList1.setMyArrayList(myArrayList.addEssence(str));
         return myArrayList1;
 
     }

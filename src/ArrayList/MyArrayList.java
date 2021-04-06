@@ -3,48 +3,48 @@ package ArrayList;
 
 import java.util.Arrays;
 
-public class MyArrayList {
-    String[] array;
+public class MyArrayList<T> {
+    T[] entities;
 
-    public void setMyArrayList(String[] array) {
-        this.array = array;
+    public void setMyArrayList(T[] entities) {
+        this.entities = entities;
     }
 
-    public String[] addElement(String str) {
-        String[] array1 = Arrays.copyOf(this.array, this.array.length + 1);
-        array1[array1.length - 1] = str;
+    public T[] addEssence(T essence) {
+        T[] array1 = (T[]) Arrays.copyOf(this.entities, this.entities.length + 1);
+        array1[array1.length - 1] = essence;
         return array1;
     }
 
     public int size() {
-        return this.array.length;
+        return this.entities.length;
     }
 
-    public String getElement(int index) {
-        String element = "";
-        for (int i = 0; i < this.array.length; i++) {
+    public T getEssence(int index) {
+        T essence = null;
+        for (int i = 0; i < this.entities.length; i++) {
             if (index == i) {
-                element = this.array[i];
+                essence = this.entities[i];
             }
         }
-        return element;
+        return essence;
     }
 
-    public int getIndex(String element) {
+    public int getIndex(T essence) {
         int index = -1;
 
-        for (int i = 0; i < this.array.length; i++) {
-            if (element.equals(this.array[i])) {
+        for (int i = 0; i < this.entities.length; i++) {
+            if (essence.equals(this.entities[i])) {
                 index = i;
             }
         }
         return index;
     }
 
-    public boolean contains(String element) {
+    public boolean contains(T essence) {
         boolean contains = false;
-        for (int i = 0; i < this.array.length; i++) {
-            if (element.equals(this.array[i])) {
+        for (int i = 0; i < this.entities.length; i++) {
+            if (essence.equals(this.entities[i])) {
                 contains = true;
             }
         }
@@ -54,7 +54,7 @@ public class MyArrayList {
     @Override
     public String toString() {
         return "MyArrayList{" +
-                "array=" + Arrays.toString(array) +
+                "array=" + Arrays.toString(entities) +
                 '}';
     }
 }
