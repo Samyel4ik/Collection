@@ -25,11 +25,24 @@ public class MyArrayList<T> {
 
         for (int i = 0; i < this.entities.length; i++) {
             if (essence.equals(this.entities[i])) {
+                return i;
+            }
+            break;
+        }
+        return index;
+    }
+
+    public int lastIndexOf(T essence) {
+        int index = -1;
+
+        for (int i = 0; i < this.entities.length; i++) {
+            if (essence.equals(this.entities[i])) {
                 index = i;
             }
         }
         return index;
     }
+
 
     public boolean contains(T essence1) {
         boolean contains = false;
@@ -54,15 +67,8 @@ public class MyArrayList<T> {
     }
 
     public void remove(T essence) {
-        Object[] entities1 = new Object[this.entities.length - 1];
-        int a = 0;
-        for (int i = 0; i < this.entities.length; i++) {
-            if (!essence.equals(this.entities[i])) {
-                entities1[a] = this.entities[i];
-                a++;
-            }
-        }
-        this.entities = entities1;
+        int index = indexOf(essence);
+        remove(index);
 
     }
 
