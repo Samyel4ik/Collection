@@ -20,7 +20,7 @@ public class ClassTest {
         System.out.println("проверка эл " + list.contains("vvv"));
 
         list.remove(1);
-        System.out.println(list + " удаление по индексу");
+        System.out.println(list + " удаление по индексу++++++");
 
         list.remove("aaa");
         System.out.println(list + " удаление по эл");

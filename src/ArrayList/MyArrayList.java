@@ -43,20 +43,20 @@ public class MyArrayList<T> {
 
 
     public boolean contains(T essence1) {
-        boolean contains = false;
+
         for (Object essence : this.entities) {
             if (essence1.equals(essence)) {
-                contains = true;
+                return true;
             }
         }
-        return contains;
+        return false;
     }
 
     public void remove(int index) {
         Object[] entities1 = new Object[this.entities.length - 1];
         int a = 0;
         for (int i = 0; i < this.entities.length; i++) {
-            if (i != index) {
+            if (i != index - 1) {
                 entities1[a] = this.entities[i];
                 a++;
             }
