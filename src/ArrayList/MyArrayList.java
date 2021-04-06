@@ -21,26 +21,26 @@ public class MyArrayList<T> {
     }
 
     public int indexOf(T essence) {
-        int index = -1;
+        boolean itemFound = true;
+        while (itemFound) {
+            for (int i = 0; i < this.entities.length; i++) {
+                if (essence.equals(this.entities[i])) {
+                    return i;
+                }
+            }
+            itemFound = false;
+        }
+        return -1;
+    }
+
+    public int lastIndexOf(T essence) {
 
         for (int i = 0; i < this.entities.length; i++) {
             if (essence.equals(this.entities[i])) {
                 return i;
             }
-            break;
         }
-        return index;
-    }
-
-    public int lastIndexOf(T essence) {
-        int index = -1;
-
-        for (int i = 0; i < this.entities.length; i++) {
-            if (essence.equals(this.entities[i])) {
-                index = i;
-            }
-        }
-        return index;
+        return -1;
     }
 
 
