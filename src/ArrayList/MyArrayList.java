@@ -69,8 +69,7 @@ public class MyArrayList<T> {
         remove(index);
 
     }
-
-
+    
     @Override
     public String toString() {
         return "MyArrayList{" +
