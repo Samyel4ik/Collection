@@ -25,11 +25,10 @@ public class MyLinkedList<T> {
         T ttt = null;
         int t = 0;
         Node now = this.head;
-        while (now.getNext() != null) {
+        while (now.getEntity() != null) {
             t++;
             if (t == index) {
-                ttt = (T) now.getEntity();
-                break;
+                return  (T) now.getEntity();
             }
             now = now.getNext();
         }
