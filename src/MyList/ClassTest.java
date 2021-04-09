@@ -18,7 +18,7 @@ public class ClassTest {
 
         System.out.println(list);
 
-        System.out.println(list.get(2));
+        System.out.println(list.get(5));
 
 
     }

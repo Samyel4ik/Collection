@@ -27,11 +27,11 @@ public class MyLinkedList<T> {
         Node now = this.head;
         while (now.getNext() != null) {
             t++;
-            now = now.getNext();
-            if (t == index - 1) {
+            if (t == index) {
                 ttt = (T) now.getEntity();
                 break;
             }
+            now = now.getNext();
         }
         return ttt;
     }
