@@ -22,18 +22,17 @@ public class MyLinkedList<T> {
     }
 
     public T get(int index) {
-        T ttt = null;
         int t = 0;
         Node now = this.head;
-        while (now.getNext() != null) {
+        if (now.getNext() != null) {
             t++;
             if (t == index) {
-                ttt = (T) now.getEntity();
-                break;
+                return(T) now.getEntity();
             }
             now = now.getNext();
+
         }
-        return ttt;
+        return (T) now.getEntity();
     }
 
 
