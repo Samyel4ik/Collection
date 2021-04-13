@@ -65,8 +65,7 @@ public class MyLinkedList<T> {
             this.size--;
         }
         if (index == getSize()) {
-            Node<T> pred = this.tail.getPrevious();
-            this.tail = pred;
+            this.tail = this.tail.getPrevious();
             this.tail.setNext(null);
             this.size--;
         }
