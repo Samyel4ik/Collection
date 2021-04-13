@@ -57,7 +57,6 @@ public class MyLinkedList<T> {
     }
 
     public void remove(int index) {
-
         Node<T> node = this.head;
 
         if (index == 0) {
@@ -114,6 +113,33 @@ public class MyLinkedList<T> {
     }
 
     public void remove(T entity) {
+        remove(indexOf(entity));
+    }
+
+    public void add(T entity, int index) {
+        this.size++;
+
+        if (index == getSize()) {
+            addTail(entity);
+        }
+        Node<T> node = this.head;
+
+        while (index > 0 & index < getSize()) {
+
+            Node<T> addNode = new Node<>(entity);
+            Node<T> node1 = get(index);
+            Node<T> node2 = get(index + 1);
+
+            if (node == node1) {
+
+                node1.setNext(addNode);
+                node2.setPrevious(addNode);
+
+                addNode.setPrevious(node1);
+                addNode.setNext(node2);
+            }
+            node = node.getNext();
+        }
     }
 
 

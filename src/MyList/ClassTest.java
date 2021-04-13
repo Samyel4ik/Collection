@@ -26,5 +26,11 @@ public class ClassTest {
         list.printHeadTail();
         System.out.println(list.getSize());
 
+        list.remove("www");
+        list.printHeadTail();
+
+        System.out.println("+++++++++++");
+        list.add("lll",1);
+        list.printHeadTail();
     }
 }
