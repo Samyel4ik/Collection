@@ -46,8 +46,16 @@ public class MyLinkedList<T> {
         }
     }
 
+    public T get(int index) {
+        Node<T> node = this.head;
+        for (int i = 0; i < index; i++) {
+            node = node.getNext();
+        }
 
-    public Node<T> get(int index) {
+        return node.getEntity();
+    }
+
+    public Node<T> getNode(int index) {
         Node<T> node = this.head;
         for (int i = 0; i < index; i++) {
             node = node.getNext();
@@ -56,33 +64,6 @@ public class MyLinkedList<T> {
         return node;
     }
 
-    public void remove(int index) {
-        Node<T> node = this.head;
-
-        if (index == 0) {
-            this.head = this.head.getNext();
-            this.size--;
-        }
-        if (index == getSize()) {
-            this.tail = this.tail.getPrevious();
-            this.tail.setNext(null);
-            this.size--;
-        }
-        while (index > 0 & index < getSize()) {
-            Node<T> node1 = get(index);
-            Node<T> node2 = get(index - 1);
-            Node<T> node3 = get(index + 1);
-
-            if (node == node1) {
-                node2.setNext(node3);
-                node3.setPrevious(node2);
-                this.size--;
-                break;
-            }
-            node = node.getNext();
-        }
-
-    }
 
     public int indexOf(T entity) {
         Node<T> node = this.head;
@@ -116,29 +97,51 @@ public class MyLinkedList<T> {
         remove(indexOf(entity));
     }
 
+    public void remove(int index) {
+        Node<T> node = this.head;
+
+        if (index == 0) {
+            this.head = this.head.getNext();
+            this.size--;
+        }
+        if (index == getSize()) {
+            this.tail = this.tail.getPrevious();
+            this.tail.setNext(null);
+            this.size--;
+        }
+        if (index > 0 & index < getSize()) {
+            Node<T> next = getNode(index + 1);
+            Node<T> prev = getNode(index - 1);
+
+            Node<T> delete = getNode(index);
+            Node<T> nextDelete = delete.getNext();
+            Node<T> prevDelete = delete.getPrevious();
+
+            next.setPrevious(prevDelete);
+            prev.setNext(nextDelete);
+        }
+
+    }
+
     public void add(T entity, int index) {
         this.size++;
 
         if (index == getSize()) {
             addTail(entity);
         }
-        Node<T> node = this.head;
 
-        while (index > 0 & index < getSize()) {
+        if (index > 0 & index < getSize()) {
 
             Node<T> addNode = new Node<>(entity);
-            Node<T> node1 = get(index);
-            Node<T> node2 = get(index + 1);
 
-            if (node == node1) {
+            Node<T> nodeIndex = getNode(index);
+            Node<T> nextNodeIndex = getNode(index + 1);
 
-                node1.setNext(addNode);
-                node2.setPrevious(addNode);
+            nodeIndex.setNext(addNode);
+            nextNodeIndex.setPrevious(addNode);
 
-                addNode.setPrevious(node1);
-                addNode.setNext(node2);
-            }
-            node = node.getNext();
+            addNode.setNext(nextNodeIndex);
+            addNode.setPrevious(nodeIndex);
         }
     }
 
