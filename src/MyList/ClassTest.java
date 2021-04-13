@@ -15,9 +15,16 @@ public class ClassTest {
         System.out.println("список от начала до конца");
         list.printHeadTail();
         System.out.println("--------------");
-        System.out.println("список от конца до начала");
-        list.printTailHead();
+//        System.out.println("список от конца до начала");
+//        list.printTailHead();
+        System.out.println("длинна списка: " + list.getSize());
+        System.out.println(list.get(0));
+        System.out.println(list.indexOf("ttt"));
+        System.out.println(list.contains("ttt"));
 
+        list.remove(2);
+        list.printHeadTail();
+        System.out.println(list.getSize());
 
     }
 }
