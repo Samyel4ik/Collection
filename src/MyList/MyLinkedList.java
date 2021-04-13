@@ -1,6 +1,5 @@
 package MyList;
 
-import static java.util.Objects.nonNull;
 
 public class MyLinkedList<T> {
     int size = 0;
@@ -13,22 +12,14 @@ public class MyLinkedList<T> {
         Node<T> node = new Node<>(entity);
 
         if (this.head != null) {
-            this.tail = findTail();
-            node.setPrevious(tail);
-            tail.setNext(node);
+            node.setPrevious(this.tail);
+            this.tail.setNext(node);
+            this.tail = node;
         } else {
             this.head = node;
             this.tail = node;
         }
     }
-
-    Node<T> findTail() {
-        while (this.tail.getNext() != null) {
-            this.tail = this.tail.getNext();
-        }
-        return this.tail;
-    }
-
 
     public void addHead(T entity) {
         this.size++;
@@ -48,7 +39,7 @@ public class MyLinkedList<T> {
     }
 
     public void printTailHead() {
-        Node<T> now = findTail();
+        Node<T> now = this.tail;
         while (now != null) {
             System.out.println(now);
             now = now.getPrevious();
@@ -66,15 +57,18 @@ public class MyLinkedList<T> {
     }
 
     public void remove(int index) {
-        this.size--;
+
         Node<T> node = this.head;
 
         if (index == 0) {
             this.head = this.head.getNext();
+            this.size--;
         }
         if (index == getSize()) {
-            this.tail = this.tail.getPrevious();
+            Node<T> pred = this.tail.getPrevious();
+            this.tail = pred;
             this.tail.setNext(null);
+            this.size--;
         }
         while (index > 0 & index < getSize()) {
             Node<T> node1 = get(index);
@@ -84,6 +78,7 @@ public class MyLinkedList<T> {
             if (node == node1) {
                 node2.setNext(node3);
                 node3.setPrevious(node2);
+                this.size--;
                 break;
             }
             node = node.getNext();
@@ -117,6 +112,9 @@ public class MyLinkedList<T> {
 
     public int getSize() {
         return size;
+    }
+
+    public void remove(T entity) {
     }
 
 

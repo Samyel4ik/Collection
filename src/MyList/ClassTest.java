@@ -22,7 +22,7 @@ public class ClassTest {
         System.out.println(list.indexOf("ttt"));
         System.out.println(list.contains("ttt"));
 
-        list.remove(2);
+        list.remove(6);
         list.printHeadTail();
         System.out.println(list.getSize());
 
