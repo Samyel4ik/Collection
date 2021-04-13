@@ -1,11 +1,16 @@
 package MyList;
 
-public class Node <T> {
+public class Node<T> {
     T entity;
-    Node<T> next ;
+    Node<T> next;
+    Node<T> previous;
 
     public Node(T entity) {
         this.entity = entity;
+    }
+
+    public void setPrevious(Node<T> previous) {
+        this.previous = previous;
     }
 
     public void setNext(Node<T> next) {
@@ -18,6 +23,10 @@ public class Node <T> {
 
     public T getEntity() {
         return entity;
+    }
+
+    public Node<T> getPrevious() {
+        return previous;
     }
 
     @Override

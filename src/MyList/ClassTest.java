@@ -1,24 +1,22 @@
 package MyList;
 
-import java.util.LinkedList;
 
 public class ClassTest {
     public static void main(String[] args) {
-
         MyLinkedList<String> list = new MyLinkedList<>();
 
-        list.add("ttt");
-        list.add("aaa");
-        list.add("ccc");
-        list.add("nnn");
-        list.add("mmm");
+        list.addTail("ttt");
+        list.addTail("aaa");
+        list.addTail("ccc");
 
-
-        System.out.println("длинна списка"+list.getSize());
-
-        System.out.println(list);
-
-        System.out.println(list.get(1));
+        list.addHead("mmm");
+        list.addHead("ggg");
+        list.addHead("www");
+        System.out.println("список от начала до конца");
+        list.printHeadTail();
+        System.out.println("--------------");
+        System.out.println("список от конца до начала");
+        list.printTailHead();
 
 
     }

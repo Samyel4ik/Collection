@@ -1,40 +1,57 @@
 package MyList;
 
+import static java.util.Objects.nonNull;
+
 public class MyLinkedList<T> {
     int size = 0;
-    Node<T> head;
+    Node<T> head;//first
 
-    public void add(T entity) {
-        Node now = this.head;
 
-        if (this.head == null) {
-            this.head = new Node(entity);
-            this.size++;
-            return;
-        }
-
-        while (now.getNext() != null) {
-            now = now.getNext();
-        }
-        now.setNext(new Node(entity));
+    public void addTail(T entity) {
         this.size++;
+        Node<T> node = new Node<>(entity);
 
+        if (this.head != null) {
+            Node<T> tail = findTail();
+            node.setPrevious(tail);
+            tail.setNext(node);
+        } else {
+            this.head = node;
+        }
     }
 
-    public T get(int index) {
-        T ttt = null;
-        int t = 0;
-        Node now = this.head;
-        while (now.getEntity() != null) {
-            t++;
-            if (t == index) {
-                return  (T) now.getEntity();
-            }
+    Node<T> findTail() {
+        Node<T> tail = this.head;
+        while (tail.getNext() != null) {
+            tail = tail.getNext();
+        }
+        return tail;
+    }
+
+    public void addHead(T entity) {
+        this.size++;
+        Node<T> node = new Node<>(entity);
+
+        node.setNext(this.head);
+        this.head.setPrevious(node);
+        this.head = node;
+    }
+
+    public void printHeadTail() {
+        Node<T> now = head;
+        while (now != null) {
+            System.out.println(now);
             now = now.getNext();
         }
-        return ttt;
     }
 
+    public void printTailHead() {
+        Node<T> now = findTail();
+        while (now != null) {
+            System.out.println(now);
+            now = now.getPrevious();
+        }
+    }
 
     public int getSize() {
         return size;
