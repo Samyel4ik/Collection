@@ -24,10 +24,14 @@ public class MyLinkedList<T> {
     public void addHead(T entity) {
         this.size++;
         Node<T> node = new Node<>(entity);
-
-        node.setNext(this.head);
-        this.head.setPrevious(node);
-        this.head = node;
+        if (this.head != null) {
+            node.setNext(this.head);
+            this.head.setPrevious(node);
+            this.head = node;
+        } else {
+            this.head = node;
+            this.tail = node;
+        }
     }
 
     public void printHeadTail() {
@@ -110,15 +114,13 @@ public class MyLinkedList<T> {
             this.size--;
         }
         if (index > 0 & index < getSize()) {
-            Node<T> next = getNode(index + 1);
-            Node<T> prev = getNode(index - 1);
 
             Node<T> delete = getNode(index);
             Node<T> nextDelete = delete.getNext();
             Node<T> prevDelete = delete.getPrevious();
 
-            next.setPrevious(prevDelete);
-            prev.setNext(nextDelete);
+            nextDelete.setPrevious(prevDelete);
+            prevDelete.setNext(nextDelete);
         }
 
     }
